@@ -1,0 +1,53 @@
+# Local development and test database. Production uses managed PostgreSQL 16.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: aidooi
+      POSTGRES_PASSWORD: aidooi
+      POSTGRES_DB: aidooi
+    ports:
+      - '5433:5432' # 5433 so it never collides with a Postgres you already run
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U aidooi -d aidooi']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  # `docker compose --profile app up --build` runs the whole platform locally from the production image.
+  migrate:
+    profiles: [app]
+    build: { context: ., dockerfile: infra/docker/api.Dockerfile }
+    command: ['node', 'dist/migrate.js']
+    environment:
+      DATABASE_ADMIN_URL: postgres://aidooi:aidooi@postgres:5432/aidooi
+    depends_on:
+      postgres: { condition: service_healthy }
+
+  api:
+    profiles: [app]
+    build: { context: ., dockerfile: infra/docker/api.Dockerfile }
+    ports: ['3000:3000']
+    environment: &app-env
+      NODE_ENV: development
+      # The owner connects but runs every session as the least-privileged, RLS-bound application role,
+      # exactly as production's login role does.
+      DATABASE_URL: postgres://aidooi:aidooi@postgres:5432/aidooi?options=-c%20role%3Daidooi_app
+      LOG_LEVEL: info
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+  worker:
+    profiles: [app]
+    build: { context: ., dockerfile: infra/docker/api.Dockerfile }
+    command: ['node', 'dist/worker.js']
+    environment:
+      <<: *app-env
+      PORT: '3001' # the worker's liveness endpoint
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+volumes:
+  pgdata:

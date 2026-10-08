@@ -1,0 +1,31 @@
+{
+  "name": "aidooi",
+  "private": true,
+  "version": "0.0.0",
+  "description": "AIDOOi \u2014 multi-seller furnishing marketplace (buyers, sellers, ops)",
+  "type": "module",
+  "packageManager": "pnpm@10.18.0",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "pnpm -r --workspace-concurrency=2 --no-bail test",
+    "db:up": "docker compose up -d --wait postgres",
+    "db:down": "docker compose down",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm drift",
+    "drift": "pnpm --filter @aidooi/db db:check && pnpm --filter @aidooi/api-client check && pnpm --filter @aidooi/ui-tokens check",
+    "openapi": "pnpm --filter @aidooi/api openapi && pnpm --filter @aidooi/api-client generate"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.0.0"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@aidooi/ui-tokens",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./tokens.css"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-css.ts",
+    "check": "node scripts/generate-css.ts --check",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.0"
+  }
+}

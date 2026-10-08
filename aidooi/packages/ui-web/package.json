@@ -1,0 +1,46 @@
+{
+  "name": "@aidooi/ui-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css",
+    "./vite": "./vite.config.base.ts",
+    "./tsconfig.app.json": "./tsconfig.app.json",
+    "./test-setup": "./vitest.setup.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "dev:playground": "vite --config playground/vite.config.ts",
+    "build:playground": "vite build --config playground/vite.config.ts",
+    "e2e": "playwright test",
+    "e2e:install": "playwright install chromium"
+  },
+  "dependencies": {
+    "@aidooi/api-client": "workspace:*",
+    "@aidooi/i18n": "workspace:*",
+    "@aidooi/ui-tokens": "workspace:*",
+    "@tanstack/react-query": "^5.104.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.0",
+    "axe-core": "^4.14.0",
+    "fast-check": "^4.10.0",
+    "jsdom": "^30.1.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.0",
+    "vitest-axe": "^0.1.0",
+    "@playwright/test": "^1.63.0"
+  }
+}

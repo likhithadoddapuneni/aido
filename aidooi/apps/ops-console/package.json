@@ -1,0 +1,42 @@
+{
+  "name": "@aidooi/ops-console",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@aidooi/api-client": "workspace:*",
+    "@aidooi/contracts": "workspace:*",
+    "@aidooi/i18n": "workspace:*",
+    "@aidooi/ui-tokens": "workspace:*",
+    "@aidooi/ui-web": "workspace:*",
+    "@tanstack/react-query": "^5.104.0",
+    "@tanstack/react-router": "^1.170.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-hook-form": "^7.89.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.0",
+    "jsdom": "^30.1.0",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.0",
+    "vitest-axe": "^0.1.0"
+  }
+}

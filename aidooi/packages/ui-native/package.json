@@ -1,0 +1,41 @@
+{
+  "name": "@aidooi/ui-native",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aidooi/i18n": "workspace:*",
+    "@aidooi/ui-tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-svg": "15.15.4"
+  },
+  "devDependencies": {
+    "@testing-library/react-native": "14.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.0.0",
+    "@types/react": "~19.2.2",
+    "babel-preset-expo": "~57.0.14",
+    "expo": "~57.0.27",
+    "fast-check": "^4.0.0",
+    "jest": "^29.7.0",
+    "jest-expo": "~57.0.5",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-svg": "15.15.4",
+    "test-renderer": "^1.0.0",
+    "typescript": "~6.0.3"
+  }
+}

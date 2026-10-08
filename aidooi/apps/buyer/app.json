@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "AiDOOi",
+    "slug": "aidooi-buyer",
+    "scheme": "aidooi",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": { "bundleIdentifier": "ae.aidooi.buyer", "supportsTablet": true },
+    "android": { "package": "ae.aidooi.buyer" },
+    "web": { "bundler": "metro", "output": "single" },
+    "plugins": ["expo-router"],
+    "experiments": { "typedRoutes": true }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "AiDOOi Seller",
+    "slug": "aidooi-seller",
+    "scheme": "aidooiseller",
+    "version": "0.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": {
+      "bundleIdentifier": "ae.aidooi.seller",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSCameraUsageDescription": "The camera scans a buyer's viewing pass and photographs proof of delivery.",
+        "NSPhotoLibraryUsageDescription": "Choose a delivery photo."
+      }
+    },
+    "android": { "package": "ae.aidooi.seller", "permissions": ["CAMERA"] },
+    "web": { "bundler": "metro", "output": "single" },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "The camera scans a buyer's viewing pass and photographs proof of delivery."
+        }
+      ],
+      ["expo-image-picker", { "photosPermission": "Choose a delivery photo." }],
+      "expo-notifications"
+    ],
+    "experiments": { "typedRoutes": true }
+  }
+}

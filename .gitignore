@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+__MACOSX/
+.~lock.*
+.~*
+
+# Dependencies & build output
+node_modules/
+dist/
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Local data not part of the codebase (contains personal contact details)
+UAE_Hospital_Contacts.xlsx

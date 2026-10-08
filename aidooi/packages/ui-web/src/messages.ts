@@ -1,0 +1,96 @@
+import type { Locale } from '@aidooi/i18n';
+
+/** Built-in labels of the components themselves. Screen copy belongs to the app, in its own catalogue. */
+const en = {
+  close: 'Close',
+  loading: 'Loading',
+  retry: 'Try again',
+  offline: 'You appear to be offline. Check your connection and try again.',
+  next: 'Next',
+  previous: 'Previous',
+  page: 'Page',
+  emptyTitle: 'Nothing here yet',
+  errorTitle: 'Something went wrong',
+  reference: 'Reference',
+  skipToContent: 'Skip to content',
+  menu: 'Menu',
+  collapseNav: 'Collapse navigation',
+  expandNav: 'Expand navigation',
+  userMenu: 'Account',
+  language: 'Language',
+  signOut: 'Sign out',
+  selectAll: 'Select all rows',
+  selectRow: 'Select row',
+  selectedCount: '{n} selected',
+  sortAscending: 'sorted ascending',
+  sortDescending: 'sorted descending',
+  errorsFound: 'Please fix the following',
+  confirm: 'Confirm',
+  cancel: 'Cancel',
+  typeToConfirm: 'Type "{word}" to confirm',
+  dropCsv: 'Drop a CSV file here, or choose one',
+  chooseFile: 'Choose file',
+  fileTooLarge: 'That file is larger than {max}.',
+  fileWrongType: 'Only CSV files are accepted.',
+  removeFile: 'Remove file',
+  step: 'Step {n} of {total}',
+  stepComplete: 'completed',
+  stepCurrent: 'current step',
+  notifications: 'Notifications',
+  dismiss: 'Dismiss',
+  search: 'Search',
+  clearFilters: 'Clear filters',
+} as const;
+
+export type MessageKey = keyof typeof en;
+export type Messages = Readonly<Record<MessageKey, string>>;
+
+const ar: Messages = {
+  close: 'إغلاق',
+  loading: 'جارٍ التحميل',
+  retry: 'حاول مرة أخرى',
+  offline: 'يبدو أنك غير متصل بالإنترنت. تحقق من اتصالك وحاول مرة أخرى.',
+  next: 'التالي',
+  previous: 'السابق',
+  page: 'صفحة',
+  emptyTitle: 'لا يوجد شيء هنا بعد',
+  errorTitle: 'حدث خطأ ما',
+  reference: 'المرجع',
+  skipToContent: 'انتقل إلى المحتوى',
+  menu: 'القائمة',
+  collapseNav: 'طيّ قائمة التنقل',
+  expandNav: 'توسيع قائمة التنقل',
+  userMenu: 'الحساب',
+  language: 'اللغة',
+  signOut: 'تسجيل الخروج',
+  selectAll: 'تحديد كل الصفوف',
+  selectRow: 'تحديد الصف',
+  selectedCount: 'تم تحديد {n}',
+  sortAscending: 'مرتّب تصاعديًا',
+  sortDescending: 'مرتّب تنازليًا',
+  errorsFound: 'يرجى تصحيح ما يلي',
+  confirm: 'تأكيد',
+  cancel: 'إلغاء',
+  typeToConfirm: 'اكتب "{word}" للتأكيد',
+  dropCsv: 'أفلت ملف CSV هنا، أو اخترْ ملفًا',
+  chooseFile: 'اختر ملفًا',
+  fileTooLarge: 'حجم الملف أكبر من {max}.',
+  fileWrongType: 'يُقبل ملف CSV فقط.',
+  removeFile: 'إزالة الملف',
+  step: 'الخطوة {n} من {total}',
+  stepComplete: 'مكتملة',
+  stepCurrent: 'الخطوة الحالية',
+  notifications: 'الإشعارات',
+  dismiss: 'إخفاء',
+  search: 'بحث',
+  clearFilters: 'مسح التصفية',
+};
+
+export const MESSAGES: Readonly<Record<Locale, Messages>> = { en, ar };
+
+export function format(
+  template: string,
+  values: Readonly<Record<string, string | number>>,
+): string {
+  return template.replace(/\{(\w+)\}/g, (_, k: string) => String(values[k] ?? ''));
+}

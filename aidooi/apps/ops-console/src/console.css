@@ -1,0 +1,50 @@
+/* Layout glue for the console. Colours, spacing and type come from the design tokens; logical properties only. */
+.ui-signin {
+  max-inline-size: 28rem;
+  margin-inline: auto;
+  padding: var(--space-5) var(--space-3);
+}
+.ops-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+.ops-stack {
+  display: grid;
+  gap: var(--space-3);
+}
+.ops-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: end;
+}
+.ops-stat {
+  font-size: var(--font-size-h2);
+  font-family: var(--font-serif);
+  color: var(--color-navy);
+}
+.ops-notice {
+  padding: var(--space-3);
+  border: 1px solid var(--color-warn-border);
+  background: var(--color-warn-bg);
+  color: var(--color-warn);
+  border-radius: var(--radius-md);
+}
+.ops-notice--info {
+  border-color: var(--color-navy-200);
+  background: var(--color-navy-050);
+  color: var(--color-navy);
+}
+.ops-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+.ops-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}

@@ -1,0 +1,17 @@
+node_modules
+dist
+coverage
+pnpm-lock.yaml
+packages/db/src/generated
+packages/contracts/openapi.json
+*.sql
+packages/ui-tokens/tokens.css
+packages/api-client/src/generated
+
+**/test-results
+**/playwright-report
+**/e2e/.state
+**/.expo
+**/dist-web
+.demo
+**/expo-env.d.ts
